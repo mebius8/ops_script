@@ -6,7 +6,7 @@
 import pandas as pd
 
 # 加载 Excel 文件
-file_path = '/Users/fushaoshan/Downloads/gptcompare-test.xlsx'
+file_path = '/Users/fushaoshan/Downloads/已有AI_tools_site_重复对比.xlsx'
 data = pd.ExcelFile(file_path)
 
 # 加载第一个工作表的数据
@@ -21,8 +21,8 @@ def standardize_url(url):
     return url
 
 # 标准化 A 列和 B 列中的网址
-df['standardized_A'] = df['link'].apply(standardize_url)
-df['standardized_B'] = df['text-xs_link'].apply(standardize_url)
+df['standardized_A'] = df['A'].apply(standardize_url)
+df['standardized_B'] = df['B'].apply(standardize_url)
 
 # 检查 B 列每一项在 A 列中是否有重复
 # 如果 B 列为空白，则 C 列输出为空白
@@ -31,7 +31,7 @@ df['C'] = df['standardized_B'].apply(
 )
 
 # 删除辅助列以生成干净的输出
-output_df = df[['link', 'text-xs_link', 'C']]
+output_df = df[['A', 'B', 'C']]
 
 # 保存结果到新文件
 output_path = 'processed_duplicates_modified.xlsx'
