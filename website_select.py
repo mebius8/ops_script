@@ -11,8 +11,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # 定义一些可能的AI相关英文关键词
 ai_keywords = [
-    "AI tools", "generative AI", "AI platform",
-    "AI tool aggregators", "Ai Aggregator", "AI resources", "AI tools directory", "AI applications"
+    "AI tools", "AI tool aggregators", "Ai Aggregator", "AI resources", "AI tools directory"
 ]
 ai_keywords = [keyword.lower() for keyword in ai_keywords]
 
@@ -38,8 +37,8 @@ def is_ai_aggregation_site(url):
             print(f"{url} is AI Tool Aggregation Site")
             return f"{url} is AI Tool Aggregation Site"
         else:
-            print(f"{url} is Not an AI Tool Aggregation Site")
-            return f"{url} is Not an AI Tool Aggregation Site"
+            print(f"{url} is Not")
+            return f"{url} is Not"
     except requests.exceptions.RequestException as e:
         print(f"{url}Request Failed: {e}")
         return f"{url}Request Failed: {e}"
@@ -83,6 +82,6 @@ def process_urls_from_excel(input_file, output_file):
 
 
 # 测试代码
-input_file = "/Users/fushaoshan/Downloads/failed.xlsx"  # 输入Excel文件
-output_file = "failed-check.xlsx"  # 输出结果的Excel文件
+input_file = "/Users/XXX/Downloads/1209error.xlsx"  # 输入Excel文件
+output_file = "./output/1209error请求结果.xlsx"  # 输出结果的Excel文件
 process_urls_from_excel(input_file, output_file)
